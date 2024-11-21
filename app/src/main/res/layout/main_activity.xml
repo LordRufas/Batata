@@ -15,12 +15,22 @@
         android:layout_weight="0"
         android:layout_gravity="center_horizontal"></ListView>
 
+
     <Button
         android:id="@+id/addToListButton"
+        android:layout_width="74dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:onClick="updateList"
+        android:text="I'm a button with an icon" />
+
+    <EditText
+        android:id="@+id/myTextBoxtoAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""></EditText>
 
-        android:text="I'm a button with an icon" />
 
 </LinearLayout>

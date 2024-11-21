@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
 
+
+    ArrayAdapter arrayAdapter;
+    ArrayList<String> strings;
+    EditText editText;
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
@@ -25,14 +30,16 @@ public class MainActivity extends AppCompatActivity{
 
         Button button = findViewById(R.id.addToListButton);
 
+        editText = findViewById(R.id.myTextBoxtoAdd);
 
-        ArrayList<String> strings = new ArrayList<>();
+
+        strings = new ArrayList<>();
         strings.add("html");
         strings.add("java");
         strings.add("kotlin");
         strings.add("python");
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,strings);
+        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,strings);
 
         listView.setAdapter(arrayAdapter);
 
@@ -46,17 +53,16 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                strings.add("aa");
-                Log.d("BUTTONS", "User tapped the Supabutton");
-                arrayAdapter.notifyDataSetChanged();
-            }
-        });
 
 
 
 
+    }
 
+    public void updateList(View view) {
+
+        strings.add(String.valueOf(editText.getText()));
+        Log.d("BUTTONS", "User tapped the Supabutton");
+        arrayAdapter.notifyDataSetChanged();
     }
 }
