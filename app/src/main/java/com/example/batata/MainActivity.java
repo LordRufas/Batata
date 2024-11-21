@@ -34,10 +34,6 @@ public class MainActivity extends AppCompatActivity{
 
 
         strings = new ArrayList<>();
-        strings.add("html");
-        strings.add("java");
-        strings.add("kotlin");
-        strings.add("python");
 
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,strings);
 
@@ -48,8 +44,6 @@ public class MainActivity extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Object listItem = listView.getItemAtPosition(position);
                 listItem.toString();
-                Log.d("List", "User tapped the " + listItem.toString() + " at position " + position );
-                
             }
         });
 
@@ -60,9 +54,9 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void updateList(View view) {
-
-        strings.add(String.valueOf(editText.getText()));
-        Log.d("BUTTONS", "User tapped the Supabutton");
-        arrayAdapter.notifyDataSetChanged();
+        if(!String.valueOf(editText.getText()).equals("") && !String.valueOf(editText.getText()).equals(null)){
+            strings.add(String.valueOf(editText.getText()));
+            arrayAdapter.notifyDataSetChanged();
+        }
     }
 }
