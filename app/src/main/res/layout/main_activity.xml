@@ -3,21 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:gravity="center|bottom"
     tools:context=".MainActivity">
 
 
-
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/myListViewer">
-    </ListView>
-
+        android:id="@+id/myListViewer"
+        android:layout_width="171dp"
+        android:layout_height="541dp"
+        android:layout_weight="0"
+        android:layout_gravity="center_horizontal"></ListView>
 
     <Button
-        android:id="@+id/supabutton"
+        android:id="@+id/addToListButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I'm a button" />
+        android:layout_gravity="center_horizontal|bottom"
+
+        android:text="I'm a button with an icon" />
 
 </LinearLayout>
